@@ -62,7 +62,7 @@ This project is built with:
 
 ## How can I deploy this project?
 
-### Opción 1: GitHub Pages (Recomendado)
+### Opción 1: GitHub Pages (Recomendado) - ACTUALIZADO
 
 1. **Habilita GitHub Pages en tu repositorio:**
    - Ve a Settings > Pages
