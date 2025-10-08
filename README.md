@@ -62,6 +62,28 @@ This project is built with:
 
 ## How can I deploy this project?
 
+### Opción 1: GitHub Pages (Recomendado)
+
+1. **Habilita GitHub Pages en tu repositorio:**
+   - Ve a Settings > Pages
+   - En "Source", selecciona "GitHub Actions"
+
+2. **El despliegue es automático:**
+   - Cada vez que hagas push a la rama `main`, se desplegará automáticamente
+   - La URL será: `https://tu-usuario.github.io/holo-design-space`
+
+### Opción 2: Despliegue Manual
+
+```bash
+# Construir el proyecto
+npm run build
+
+# Los archivos se generan en la carpeta 'dist'
+# Sube el contenido de 'dist' a tu servidor web
+```
+
+### Opción 3: Lovable
+
 Simply open [Lovable](https://lovable.dev/projects/3128f637-c4d9-4e5d-b184-5def936afa2b) and click on Share -> Publish.
 
 ## Can I connect a custom domain to my Lovable project?
