@@ -30,5 +30,5 @@ export default defineConfig(({ mode }) => ({
       }
     }
   },
-  base: "/holo-design-space/"
+  base: "./"
 }));
