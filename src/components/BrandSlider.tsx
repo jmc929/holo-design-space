@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
+import pullman from "@/assets/pullman-colchones.png";
+import sony from "@/assets/sony.png";
+import camiloIluminacion from "@/assets/camilo-iluminacion.png";
+import samsung from "@/assets/samsung.png";
+import lg from "@/assets/lg.png";
+import philips from "@/assets/philips.png";
 
 const brands = [
-  { name: "Pullman", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=Pullman" },
-  { name: "Sony", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=Sony" },
-  { name: "Camilo Iluminación", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=Camilo+Ilum" },
-  { name: "Samsung", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=Samsung" },
-  { name: "LG", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=LG" },
-  { name: "Philips", logo: "https://via.placeholder.com/150x60/0066FF/FFFFFF?text=Philips" },
+  { name: "Pullman", logo: pullman },
+  { name: "Sony", logo: sony },
+  { name: "Camilo Iluminación", logo: camiloIluminacion },
+  { name: "Samsung", logo: samsung },
+  { name: "LG", logo: lg },
+  { name: "Philips", logo: philips },
 ];
 
 const BrandSlider = () => {
@@ -42,7 +48,7 @@ const BrandSlider = () => {
                   <img
                     src={brand.logo}
                     alt={brand.name}
-                    className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-20 w-auto hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
               </div>

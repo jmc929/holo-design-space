@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,9 +43,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center animate-glow">
-              <Sparkles className="w-6 h-6 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="Company Logo" className="h-11 w-auto" />
             <span className="text-2xl font-bold text-gradient">HoloHome</span>
           </Link>
 
@@ -55,9 +60,51 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Button className="gradient-primary text-primary-foreground hover:opacity-90 transition-opacity">
+            <Button onClick={() => setIsContactFormOpen(true)} className="gradient-primary text-primary-foreground hover:opacity-90 transition-opacity">
               Contratar Ahora
             </Button>
+
+            <Dialog open={isContactFormOpen} onOpenChange={setIsContactFormOpen}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Solicitud de Cotización</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Tipo de Diseño *</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="bsico-holografico">Básico Holográfico</SelectItem>
+                          <SelectItem value="premium-completo">Premium Completo</SelectItem>
+                          <SelectItem value="proyecto-corporativo">Proyecto Corporativo</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label>Presupuesto Estimado *</Label>
+                      <Input type="text" placeholder="$0" />
+                    </div>
+                    <div>
+                      <Label>Nombre *</Label>
+                      <Input type="text" placeholder="Tu nombre" />
+                    </div>
+                    <div>
+                      <Label>Correo Electrónico *</Label>
+                      <Input type="email" placeholder="tu@email.com" />
+                    </div>
+                    <div>
+                      <Label>Teléfono *</Label>
+                      <Input type="tel" placeholder="+57 300 123 4567" />
+                    </div>
+                    <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
+                      Enviar Solicitud
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,9 +139,51 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button className="gradient-primary text-primary-foreground w-full">
+              <Button onClick={() => setIsContactFormOpen(true)} className="gradient-primary text-primary-foreground w-full">
                 Contratar Ahora
               </Button>
+
+              <Dialog open={isContactFormOpen} onOpenChange={setIsContactFormOpen}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Solicitud de Cotización</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Tipo de Diseño *</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="bsico-holografico">Básico Holográfico</SelectItem>
+                          <SelectItem value="premium-completo">Premium Completo</SelectItem>
+                          <SelectItem value="proyecto-corporativo">Proyecto Corporativo</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label>Presupuesto Estimado *</Label>
+                      <Input type="text" placeholder="$0" />
+                    </div>
+                    <div>
+                      <Label>Nombre *</Label>
+                      <Input type="text" placeholder="Tu nombre" />
+                    </div>
+                    <div>
+                      <Label>Correo Electrónico *</Label>
+                      <Input type="email" placeholder="tu@email.com" />
+                    </div>
+                    <div>
+                      <Label>Teléfono *</Label>
+                      <Input type="tel" placeholder="+57 300 123 4567" />
+                    </div>
+                    <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
+                      Enviar Solicitud
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         )}
