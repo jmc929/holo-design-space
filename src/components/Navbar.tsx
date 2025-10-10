@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,21 +71,33 @@ const Navbar = () => {
                   </DialogHeader>
                   <div className="space-y-4">
                     <div>
-                      <Label>Tipo de Proyecto</Label>
+                      <Label>Tipo de Diseño *</Label>
                       <Select>
                         <SelectTrigger>
                           <SelectValue placeholder="Selecciona..." />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="residencial">Residencial</SelectItem>
-                          <SelectItem value="corporativo">Corporativo</SelectItem>
-                          <SelectItem value="otro">Otro</SelectItem>
+                          <SelectItem value="bsico-holografico">Básico Holográfico</SelectItem>
+                          <SelectItem value="premium-completo">Premium Completo</SelectItem>
+                          <SelectItem value="proyecto-corporativo">Proyecto Corporativo</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
-                      <Label>Presupuesto Estimado</Label>
+                      <Label>Presupuesto Estimado *</Label>
                       <Input type="text" placeholder="$0" />
+                    </div>
+                    <div>
+                      <Label>Nombre *</Label>
+                      <Input type="text" placeholder="Tu nombre" />
+                    </div>
+                    <div>
+                      <Label>Correo Electrónico *</Label>
+                      <Input type="email" placeholder="tu@email.com" />
+                    </div>
+                    <div>
+                      <Label>Teléfono *</Label>
+                      <Input type="tel" placeholder="+57 300 123 4567" />
                     </div>
                     <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
                       Enviar Solicitud
@@ -137,21 +150,33 @@ const Navbar = () => {
                   </DialogHeader>
                   <div className="space-y-4">
                     <div>
-                      <Label>Tipo de Proyecto</Label>
+                      <Label>Tipo de Diseño *</Label>
                       <Select>
                         <SelectTrigger>
                           <SelectValue placeholder="Selecciona..." />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="residencial">Residencial</SelectItem>
-                          <SelectItem value="corporativo">Corporativo</SelectItem>
-                          <SelectItem value="otro">Otro</SelectItem>
+                          <SelectItem value="bsico-holografico">Básico Holográfico</SelectItem>
+                          <SelectItem value="premium-completo">Premium Completo</SelectItem>
+                          <SelectItem value="proyecto-corporativo">Proyecto Corporativo</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                     <div>
-                      <Label>Presupuesto Estimado</Label>
+                      <Label>Presupuesto Estimado *</Label>
                       <Input type="text" placeholder="$0" />
+                    </div>
+                    <div>
+                      <Label>Nombre *</Label>
+                      <Input type="text" placeholder="Tu nombre" />
+                    </div>
+                    <div>
+                      <Label>Correo Electrónico *</Label>
+                      <Input type="email" placeholder="tu@email.com" />
+                    </div>
+                    <div>
+                      <Label>Teléfono *</Label>
+                      <Input type="tel" placeholder="+57 300 123 4567" />
                     </div>
                     <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
                       Enviar Solicitud
@@ -159,7 +184,6 @@ const Navbar = () => {
                   </div>
                 </DialogContent>
               </Dialog>
-
             </div>
           </div>
         )}
