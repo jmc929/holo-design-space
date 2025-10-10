@@ -3,11 +3,16 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,9 +59,39 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Button className="gradient-primary text-primary-foreground hover:opacity-90 transition-opacity">
+            <Button onClick={() => setIsContactFormOpen(true)} className="gradient-primary text-primary-foreground hover:opacity-90 transition-opacity">
               Contratar Ahora
             </Button>
+
+            <Dialog open={isContactFormOpen} onOpenChange={setIsContactFormOpen}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Solicitud de Cotización</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Tipo de Proyecto</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="residencial">Residencial</SelectItem>
+                          <SelectItem value="corporativo">Corporativo</SelectItem>
+                          <SelectItem value="otro">Otro</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label>Presupuesto Estimado</Label>
+                      <Input type="text" placeholder="$0" />
+                    </div>
+                    <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
+                      Enviar Solicitud
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
           </div>
 
           {/* Mobile Menu Button */}
@@ -91,9 +126,40 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button className="gradient-primary text-primary-foreground w-full">
+              <Button onClick={() => setIsContactFormOpen(true)} className="gradient-primary text-primary-foreground w-full">
                 Contratar Ahora
               </Button>
+
+              <Dialog open={isContactFormOpen} onOpenChange={setIsContactFormOpen}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Solicitud de Cotización</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Tipo de Proyecto</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="residencial">Residencial</SelectItem>
+                          <SelectItem value="corporativo">Corporativo</SelectItem>
+                          <SelectItem value="otro">Otro</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label>Presupuesto Estimado</Label>
+                      <Input type="text" placeholder="$0" />
+                    </div>
+                    <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
+                      Enviar Solicitud
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+
             </div>
           </div>
         )}

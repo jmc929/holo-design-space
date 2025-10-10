@@ -114,11 +114,22 @@ const Index = () => {
               ¿Quiénes <span className="text-gradient">Somos?</span>
             </h2>
             <p className="text-lg text-muted-foreground text-center mb-12 leading-relaxed">
-              HoloHome es una plataforma innovadora que combina hologramas e
-              inteligencia artificial para diseñar espacios de manera inmersiva.
-              Revolucionamos el sector del diseño de interiores y decoración,
-              permitiendo a nuestros clientes previsualizar y personalizar sus
-              espacios antes de realizar cualquier cambio físico.
+            <b>HoloHome</b> es una plataforma innovadora que une la inteligencia artificial
+            con la proyección holográfica para transformar el diseño de interiores
+            en una experiencia inmersiva, emocionante y accesible para todos. 
+            Revolucionamos la forma de concebir los espacios, permitiendo a nuestros 
+            clientes visualizar y personalizar su entorno antes de realizar cualquier 
+            cambio físico. <br /><br />
+
+            Creemos que el diseño debe ir más allá de lo funcional: debe inspirar, 
+            emocionar y conectar con las personas. Por eso, nuestro equipo 
+            multidisciplinario —formado por ingenieros, arquitectos, diseñadores y 
+            expertos en tecnología— trabaja en conjunto para convertir cada idea en 
+            una experiencia visual única. <br /><br />
+                    
+            Más que una empresa, <b>HoloHome</b> es un puente entre la creatividad, la 
+            tecnología y la vida cotidiana, donde el futuro del diseño de interiores 
+            se proyecta, literalmente, frente a tus ojos.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">

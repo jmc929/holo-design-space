@@ -1,4 +1,4 @@
-import { Target, Eye, Heart, Sparkles } from "lucide-react";
+import { Target, Eye, Heart, Sparkles, Leaf, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import logo from "@/assets/logo.png";
@@ -9,7 +9,7 @@ const Nosotros = () => {
       icon: Sparkles,
       title: "Innovación",
       description:
-        "Lideramos el cambio en el diseño de interiores con tecnología de vanguardia",
+        "Lideramos el cambio en el diseño de interiores incorporando las tecnologías más recientes para ofrecer experiencias únicas",
     },
     {
       icon: Heart,
@@ -22,6 +22,24 @@ const Nosotros = () => {
       title: "Eficiencia",
       description:
         "Optimizamos tiempo y recursos mediante la visualización previa de espacios",
+    },
+    {
+      icon: Eye,
+      title: "Transparencia",
+      description:
+        "Fomentamos la confianza a través de procesos claros y comunicación constante",
+    },
+    {
+      icon: Leaf,
+      title: "Sostenibilidad",
+      description:
+        "Promovemos decisiones de diseño responsables y ecológicas",
+    },
+    {
+      icon: Globe,
+      title: "Colaboración Global",
+      description:
+        "Impulsamos la creatividad mediante el trabajo conjunto entre expertos, clientes y comunidades alrededor del mundo",
     },
   ];
 
@@ -54,10 +72,12 @@ const Nosotros = () => {
               </div>
               <h2 className="text-3xl font-bold mb-4">Nuestra Misión</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Transformar la forma en que las personas diseñan y equipan sus
-                espacios, combinando tecnología holográfica e inteligencia
-                artificial con diseño personalizado. Hacemos que el proceso de
-                renovación sea accesible, eficiente y emocionante para todos.
+                Transformar la forma en que las personas interactúan con sus 
+                espacios, utilizando tecnología holográfica e inteligencia 
+                artificial para que diseñar o remodelar sea un proceso 
+                inspirador, eficiente y libre de incertidumbre.
+                Queremos que cada usuario pueda experimentar su hogar antes 
+                de crearlo, tomando decisiones con confianza y emoción.
               </p>
             </div>
 
@@ -67,10 +87,11 @@ const Nosotros = () => {
               </div>
               <h2 className="text-3xl font-bold mb-4">Nuestra Visión</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Ser líderes globales en el sector del diseño de interiores
-                digital, estableciendo nuevos estándares de innovación y
-                excelencia. Aspiramos a que cada hogar y espacio comercial pueda
+                Ser líderes globales en la digitalización del diseño interior, 
+                aspirando a que cada hogar y espacio comercial pueda 
                 beneficiarse de nuestra tecnología de visualización inmersiva.
+                Buscamos que HoloHome se convierta en sinónimo de innovación, 
+                comodidad y sostenibilidad en el diseño del futuro. .
               </p>
             </div>
           </div>
