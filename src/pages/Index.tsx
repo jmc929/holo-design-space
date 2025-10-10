@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, Sparkles, Zap, Shield, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -27,43 +28,43 @@ const services = [
     id: 1,
     title: "Diseño Básico Holográfico",
     description:
-      "Visualización holográfica de tu espacio con recomendaciones de IA. Ideal para proyectos pequeños.",
+      "Perfecto para proyectos personales, habitaciones individuales o remodelaciones puntuales.",
     price: "$2,500,000",
     priceUSD: "$625",
     image: service1,
     fullDescription:
-      "Este servicio incluye una sesión de consulta virtual, visualización holográfica 3D de una habitación, recomendaciones personalizadas de diseño basadas en IA, y una lista de productos sugeridos con enlaces directos a nuestros proveedores aliados.",
+      "Ideal para quienes desean transformar una habitación o espacio pequeño con el poder de la tecnología. Incluye una sesión virtual de diagnóstico donde se analiza el entorno, estilo deseado y presupuesto. Luego, se genera una visualización holográfica 3D de alta fidelidad, acompañada de recomendaciones personalizadas creadas por nuestra IA. El servicio finaliza con una lista curada de productos y mobiliario, con enlaces directos a proveedores aliados para una compra rápida y segura.",
   },
   {
     id: 2,
     title: "Diseño Premium Completo",
     description:
-      "Diseño completo de múltiples espacios con visualización inmersiva y gestión de compras.",
+      "Recomendado para viviendas nuevas, remodelaciones completas o proyectos de diseño a medida.",
     price: "$7,500,000",
     priceUSD: "$1,875",
     image: service2,
     fullDescription:
-      "Incluye diseño completo de hasta 3 habitaciones, visualización holográfica avanzada con interacción en tiempo real, recomendaciones de IA personalizadas, gestión completa de compras con proveedores aliados, y coordinación de instalación.",
+      "Pensado para quienes buscan una transformación integral con una experiencia totalmente inmersiva. Incluye el diseño completo de hasta tres habitaciones, con visualización holográfica avanzada, interacción en tiempo real y personalización total mediante IA. Nuestro equipo se encarga de la gestión de compras y logística con las marcas aliadas, asegurando coherencia estética y eficiencia en cada detalle. Además, ofrece asesoría continua durante el proceso de instalación, garantizando un resultado fiel al modelo virtual.",
   },
   {
     id: 3,
     title: "Proyecto Corporativo",
     description:
-      "Solución integral para oficinas y espacios comerciales con tecnología de punta.",
+      "Perfecto para oficinas, locales comerciales, constructoras y desarrolladores inmobiliarios que desean diferenciarse con innovación y eficiencia.",
     price: "$15,000,000",
     priceUSD: "$3,750",
     image: service3,
     fullDescription:
-      "Diseño completo de espacios corporativos, visualización holográfica multi-usuario, sistema de IA avanzado para optimización de espacios, gestión total de proyecto incluyendo compras e instalación, soporte post-implementación por 6 meses.",
+      "Dirigido a empresas, constructoras y desarrolladores que buscan incorporar tecnología holográfica en el diseño y presentación de espacios corporativos. Incluye la visualización holográfica multiusuario, ideal para presentaciones en salas de juntas o ferias inmobiliarias, junto con un sistema de IA avanzada que optimiza la distribución, iluminación y flujo de trabajo. El servicio abarca la gestión total del proyecto, desde el diseño hasta la instalación, incluyendo compras, coordinación de proveedores y soporte post-implementación durante seis meses.",
   },
 ];
 
 const Index = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
-const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-const [isContactForm2Open, setIsContactForm2Open] = useState(false);
-const [isDemoOpen, setIsDemoOpen] = useState(false);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isContactForm2Open, setIsContactForm2Open] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -103,10 +104,12 @@ const [isDemoOpen, setIsDemoOpen] = useState(false);
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-              <Button size="lg" className="gradient-primary text-primary-foreground text-lg group">
-                Comenzar Ahora
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <Link to="/como-funciona">
+                <Button size="lg" className="gradient-primary text-primary-foreground text-lg group">
+                  Comenzar Ahora
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
               <Button onClick={() => setIsDemoOpen(true)} size="lg" variant="outline" className="text-lg">
                 Ver Demo
               </Button>

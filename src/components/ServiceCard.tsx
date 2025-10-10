@@ -44,7 +44,7 @@ const ServiceCard = ({
       </CardHeader>
 
       <CardContent>
-        <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+        <p className="text-muted-foreground text-sm mb-4 line-clamp-2 h-20">
           {description}
         </p>
 

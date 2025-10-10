@@ -21,42 +21,61 @@ const BrandSlider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % brands.length);
-    }, 3000);
-
+    }, 2500); // Velocidad del cambio
     return () => clearInterval(interval);
   }, []);
 
+  const getVisibleBrands = () => {
+    const total = brands.length;
+    const visible = [];
+    for (let i = -2; i <= 2; i++) {
+      visible.push(brands[(currentIndex + i + total) % total]);
+    }
+    return visible;
+  };
+
   return (
-    <div className="py-16 bg-muted/30">
+    <div className="py-24 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-16">
           Marcas <span className="text-gradient">Aliadas</span>
         </h2>
 
-        <div className="relative overflow-hidden">
-          <div className="flex gap-8 items-center justify-center flex-wrap md:flex-nowrap">
-            {brands.map((brand, index) => (
-              <div
-                key={brand.name}
-                className={`flex-shrink-0 transition-all duration-500 ${
-                  index === currentIndex
-                    ? "scale-110 opacity-100"
-                    : "scale-90 opacity-50"
-                }`}
-              >
-                <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="h-20 w-auto hover:grayscale-0 transition-all duration-300"
-                  />
+        <div className="relative overflow-hidden py-24">
+          <div className="flex items-center justify-center gap-8 transition-transform duration-1000 ease-in-out">
+            {getVisibleBrands().map((brand, index) => {
+              const position = index - 2;
+              const isActive = position === 0;
+
+              const scale = isActive ? 1.6 : 0.8 - Math.abs(position) * 0.1;
+              const opacity = isActive ? 1 : 0.4;
+
+              return (
+                <div
+                  key={brand.name}
+                  style={{
+                    transform: `scale(${scale}) translateX(${position * 120}px)`,
+                    opacity,
+                    zIndex: isActive ? 10 : 1,
+                    transition: "all 0.8s ease-in-out",
+                  }}
+                  className="flex-shrink-0"
+                >
+                  <div className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-shadow flex items-center justify-center w-64 h-64">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="h-30 w-auto object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        {/* Indicadores */}
+        <div className="flex justify-center gap-2 mt-10">
           {brands.map((_, index) => (
             <button
               key={index}
@@ -66,7 +85,7 @@ const BrandSlider = () => {
                   ? "bg-primary w-8"
                   : "bg-muted-foreground/30"
               }`}
-              aria-label={`Go to brand ${index + 1}`}
+              aria-label={`Ir a marca ${index + 1}`}
             />
           ))}
         </div>
