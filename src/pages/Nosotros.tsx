@@ -1,6 +1,7 @@
 import { Target, Eye, Heart, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import logo from "@/assets/logo.png";
 
 const Nosotros = () => {
   const valores = [
@@ -32,9 +33,7 @@ const Nosotros = () => {
       <section className="pt-32 pb-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="w-20 h-20 rounded-2xl bg-primary flex items-center justify-center mx-auto mb-8 animate-glow">
-              <Sparkles className="w-10 h-10 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="Company Logo" className="w-20 h-20 flex items-center justify-center mx-auto mb-8"/>
             <h1 className="text-5xl font-bold mb-6">
               Sobre <span className="text-gradient">HoloHome</span>
             </h1>
