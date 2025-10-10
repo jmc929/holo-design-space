@@ -64,7 +64,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                Bogotá, Colombia
+                Medellín, Colombia
               </li>
             </ul>
           </div>

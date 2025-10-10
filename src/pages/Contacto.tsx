@@ -96,7 +96,7 @@ const Contacto = () => {
                       <p className="text-muted-foreground">
                         Calle 100 #19-54
                         <br />
-                        Bogotá, Colombia
+                        Medellín, Colombia
                       </p>
                     </div>
                   </div>
