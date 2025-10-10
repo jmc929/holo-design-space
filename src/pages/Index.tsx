@@ -17,6 +17,7 @@ import heroImage from "@/assets/hero-interior.jpg";
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
 import service3 from "@/assets/service-3.jpg";
+import demoVideo from "@/assets/HoloHome_ Rediseño Futurista.mp4";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -226,6 +227,26 @@ const Index = () => {
       </section>
 
       <Footer />
+
+      {/* Demo Video Dialog */}
+      <Dialog open={isDemoOpen} onOpenChange={setIsDemoOpen}>
+        <DialogContent className="max-w-4xl">
+          <DialogHeader>
+            <DialogTitle>Demo HoloHome</DialogTitle>
+            <DialogDescription>
+              Visualiza la demostración del rediseño futurista de HoloHome.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4">
+            <video
+              src={demoVideo}
+              controls
+              autoPlay
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Service Detail Dialog */}
       <Dialog open={!!selectedService} onOpenChange={() => setSelectedService(null)}>
