@@ -16,6 +16,10 @@ import heroImage from "@/assets/hero-interior.jpg";
 import service1 from "@/assets/service-1.jpg";
 import service2 from "@/assets/service-2.jpg";
 import service3 from "@/assets/service-3.jpg";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const services = [
   {
@@ -55,6 +59,9 @@ const services = [
 
 const Index = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+
+const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+const [isContactForm2Open, setIsContactForm2Open] = useState(false);
 
   return (
     <div className="min-h-screen">
@@ -114,11 +121,22 @@ const Index = () => {
               ¿Quiénes <span className="text-gradient">Somos?</span>
             </h2>
             <p className="text-lg text-muted-foreground text-center mb-12 leading-relaxed">
-              HoloHome es una plataforma innovadora que combina hologramas e
-              inteligencia artificial para diseñar espacios de manera inmersiva.
-              Revolucionamos el sector del diseño de interiores y decoración,
-              permitiendo a nuestros clientes previsualizar y personalizar sus
-              espacios antes de realizar cualquier cambio físico.
+            <b>HoloHome</b> es una plataforma innovadora que une la inteligencia artificial
+            con la proyección holográfica para transformar el diseño de interiores
+            en una experiencia inmersiva, emocionante y accesible para todos. 
+            Revolucionamos la forma de concebir los espacios, permitiendo a nuestros 
+            clientes visualizar y personalizar su entorno antes de realizar cualquier 
+            cambio físico. <br /><br />
+
+            Creemos que el diseño debe ir más allá de lo funcional: debe inspirar, 
+            emocionar y conectar con las personas. Por eso, nuestro equipo 
+            multidisciplinario —formado por ingenieros, arquitectos, diseñadores y 
+            expertos en tecnología— trabaja en conjunto para convertir cada idea en 
+            una experiencia visual única. <br /><br />
+                    
+            Más que una empresa, <b>HoloHome</b> es un puente entre la creatividad, la 
+            tecnología y la vida cotidiana, donde el futuro del diseño de interiores 
+            se proyecta, literalmente, frente a tus ojos.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -196,7 +214,7 @@ const Index = () => {
               Contáctanos hoy y descubre cómo la tecnología puede hacer realidad
               el hogar de tus sueños
             </p>
-            <Button size="lg" variant="secondary" className="text-lg">
+            <Button onClick={() => {setIsContactForm2Open(true); setSelectedService(null); }} size="lg" variant="secondary" className="text-lg">
               Contratar HoloHome
             </Button>
           </div>
@@ -224,12 +242,83 @@ const Index = () => {
                 / {selectedService?.priceUSD} USD
               </span>
             </div>
-            <Button className="w-full gradient-primary text-primary-foreground">
+            <Button onClick={() => {setIsContactFormOpen(true); setSelectedService(null); }} className="w-full gradient-primary text-primary-foreground">
               Contratar Este Servicio
             </Button>
           </div>
         </DialogContent>
       </Dialog>
+
+      <Dialog open={isContactFormOpen} onOpenChange={setIsContactFormOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Solicitud de Cotización</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+                <Label>Nombre *</Label>
+                <Input type="text" placeholder="Tu nombre" />
+              </div>
+              <div>
+                <Label>Correo Electrónico *</Label>
+                <Input type="email" placeholder="tu@email.com" />
+              </div>
+              <div>
+                <Label>Teléfono *</Label>
+                <Input type="tel" placeholder="+57 300 123 4567" />
+              </div>
+              <div>
+                <Label>Mensaje</Label>
+                <Textarea className="resize-none" placeholder="Cuéntanos sobre tu proyecto..." />
+              </div>
+            <Button onClick={() => setIsContactFormOpen(false)} className="w-full">
+              Enviar Solicitud
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={isContactForm2Open} onOpenChange={setIsContactForm2Open}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Solicitud de Cotización</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4">
+              <div>
+                <Label>Tipo de Diseño *</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Selecciona..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="bsico-holografico">Básico Holográfico</SelectItem>
+                    <SelectItem value="premium-completo">Premium Completo</SelectItem>
+                    <SelectItem value="proyecto-corporativo">Proyecto Corporativo</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label>Presupuesto Estimado *</Label>
+                <Input type="text" placeholder="$0" />
+              </div>
+              <div>
+                <Label>Nombre *</Label>
+                <Input type="text" placeholder="Tu nombre" />
+              </div>
+              <div>
+                <Label>Correo Electrónico *</Label>
+                <Input type="email" placeholder="tu@email.com" />
+              </div>
+              <div>
+                <Label>Teléfono *</Label>
+                <Input type="tel" placeholder="+57 300 123 4567" />
+              </div>
+              <Button onClick={() => setIsContactForm2Open(false)} className="w-full">
+                Enviar Solicitud
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
     </div>
   );
 };
